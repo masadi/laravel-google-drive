@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 class GoogleController extends Controller
 {
     public function index(){
-        $path = request()->attachment->store(request()->generated_new_name, 'google');
+        $path = request()->attachment->store(request()->npsn, 'google');
         //return $path;
         $data = [
             'request' => request()->all(),
