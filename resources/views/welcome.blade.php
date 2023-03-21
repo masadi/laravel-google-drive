@@ -89,7 +89,8 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                     <?php
-                    $a = ['put', 'put-existing', 'list-team-drives', 'get', 'put-get-stream', 'create-dir', 'create-sub-dir', 'put-in-dir', 'list-folder-contents', 'delete', 'delete-dir', 'rename-dir', 'share'];
+                    $a = [];
+                    //['put', 'put-existing', 'list-team-drives', 'get', 'put-get-stream', 'create-dir', 'create-sub-dir', 'put-in-dir', 'list-folder-contents', 'delete', 'delete-dir', 'rename-dir', 'share'];
                     ?>
                     @foreach ($a as $b)
                     <a href="{{route($b)}}">{{$b}}</a>
