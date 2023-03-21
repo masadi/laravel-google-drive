@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Http;
 
 class GoogleController extends Controller
@@ -12,9 +13,7 @@ class GoogleController extends Controller
         //return $path;
         $data = [
             'path' => $path,
-            'generated_new_name' => request()->generated_new_name,
-            'request' => request()->all(),
-            'attachment' => request()->attachment,
+            'new_path' => Str::of($path)->basename(),
         ];
         return response()->json($data);
     }
