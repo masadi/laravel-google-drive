@@ -11,9 +11,10 @@ class GoogleController extends Controller
         $path = request()->attachment->store(request()->npsn, 'google');
         //return $path;
         $data = [
+            'path' => $path,
+            'generated_new_name' => request()->generated_new_name,
             'request' => request()->all(),
             'attachment' => request()->attachment,
-            'path' => $path,
         ];
         return response()->json($data);
     }
