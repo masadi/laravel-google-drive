@@ -25,10 +25,9 @@ class GoogleController extends Controller
     }
     public function get(){
         $filename = request()->filename;
-        $data = ['filename' => $filename];
-        return response()->json($data);
         $rawData = Storage::cloud()->get($filename); // raw content
         $file = Storage::cloud()->getAdapter()->getMetadata($filename); // array with file info
+        return response()->json($file);
         return response($rawData, 200)
             ->header('ContentType', $file['mimetype'])
             ->header('Content-Disposition', "attachment; filename=$filename");
