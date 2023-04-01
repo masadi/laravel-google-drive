@@ -13,6 +13,7 @@ use App\Http\Controllers\GoogleController;
 |
 */
 Route::post('google', [GoogleController::class, 'index']);
+Route::get('get', [GoogleController::class, 'get']);
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
