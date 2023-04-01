@@ -29,7 +29,7 @@ class GoogleController extends Controller
         $rawData = Storage::cloud()->get($filename); // raw content
         return response()->json([
             'filename' => $filename,
-            'rawData' => $rawData,
+            'rawData' => file_put_contents("output.pdf",$rawData),//$rawData,
         ]);
         $file = Storage::cloud()->getAdapter()->getMetadata($filename); // array with file info
         return response()->json(['file' => $file]);
