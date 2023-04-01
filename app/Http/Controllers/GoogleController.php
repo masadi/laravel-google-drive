@@ -27,6 +27,8 @@ class GoogleController extends Controller
     public function get(){
         $filename = request()->filename;
         $rawData = Storage::cloud()->get($filename); // raw content
+        $file = Storage::cloud()->getAdapter()->getMetadata($filename); // array with file info
+        $file_id = $file['id'];
         $service = Storage::cloud()->getAdapter()->getService();
         $file_preview = $service->files->get($file_id, ['fields' => 'id, webViewLink']);
         $previewUrl = $file_preview->getWebViewLink();
