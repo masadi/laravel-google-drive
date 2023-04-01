@@ -50,7 +50,7 @@ Route::get('list-team-drives', function () {
 
 Route::get('get', function() {
     // there can be duplicate file names!
-    $filename = 'fCNQZZjvZriq9CHikR8A8HPeJrRPndTn2tqBLspF.pdf';
+    $filename = 'BERKAS-SIMAZAH/fCNQZZjvZriq9CHikR8A8HPeJrRPndTn2tqBLspF.pdf';
 
     $rawData = Storage::cloud()->get($filename); // raw content
     $file = Storage::cloud()->getAdapter()->getMetadata($filename); // array with file info
