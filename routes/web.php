@@ -51,7 +51,7 @@ Route::get('list-team-drives', function () {
 Route::get('get', function() {
     $link = 'https://www.googleapis.com/drive/v3/files/1B6QZbaUOkkYxQXh7AaJM405YPLzyTuqS';
     // there can be duplicate file names!
-    $filename = '1B6QZbaUOkkYxQXh7AaJM405YPLzyTuqS';
+    $filename = '20606817/xSUgZWMuclcayt4JoXiz4EBoWfnecXl9rBJqOhuZ.pdf';
     $rawData = Storage::cloud()->get($filename); // raw content
     $file = Storage::cloud()->getAdapter()->getMetadata($filename); // array with file info
 
