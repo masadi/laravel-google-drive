@@ -55,7 +55,7 @@ Route::get('get', function() {
     $rawData = Storage::cloud()->get($filename); // raw content
     $file = Storage::cloud()->getAdapter()->getMetadata($filename); // array with file info
     dump($filename);
-    dump($rawData);
+    dump(json_encode($rawData));
     dd($file);
     return response($rawData, 200)
         ->header('ContentType', $file['mimetype'])
