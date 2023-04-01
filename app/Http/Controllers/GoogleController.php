@@ -27,10 +27,13 @@ class GoogleController extends Controller
     public function get(){
         $filename = request()->filename;
         $rawData = Storage::cloud()->get($filename); // raw content
+        $service = Storage::cloud()->getAdapter()->getService();
+        $file_preview = $service->files->get($file_id, ['fields' => 'id, webViewLink']);
+        $previewUrl = $file_preview->getWebViewLink();
         //$output = file_put_contents("output.pdf",$rawData);
         return response()->json([
             'filename' => $filename,
-            'rawData' => json_encode($rawData),
+            'previewUrl' => $previewUrl,
         ]);
         $file = Storage::cloud()->getAdapter()->getMetadata($filename); // array with file info
         return response()->json(['file' => $file]);
