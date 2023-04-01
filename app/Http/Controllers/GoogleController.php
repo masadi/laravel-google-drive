@@ -36,6 +36,7 @@ class GoogleController extends Controller
         return response()->json([
             'filename' => $filename,
             'previewUrl' => $previewUrl,
+            'file_id' => $file_id,
         ]);
         $file = Storage::cloud()->getAdapter()->getMetadata($filename); // array with file info
         return response()->json(['file' => $file]);
