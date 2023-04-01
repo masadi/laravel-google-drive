@@ -54,8 +54,13 @@ Route::get('get', function() {
     $filename = '20606817/xSUgZWMuclcayt4JoXiz4EBoWfnecXl9rBJqOhuZ.pdf';
     $rawData = Storage::cloud()->get($filename); // raw content
     $file = Storage::cloud()->getAdapter()->getMetadata($filename); // array with file info
-    dump($filename);
-    dump(json_encode($rawData));
+    $file_id = $file['id'];
+    //dump($filename);
+    //dump(json_encode($rawData));
+    $service = Storage::cloud()->getAdapter()->getService();
+    $file_preview = $service->files->get($file_id, ['fields' => 'id, webViewLink']);
+    $previewUrl = $file_preview->getWebViewLink();
+    dump($previewUrl);
     dd($file);
     return response($rawData, 200)
         ->header('ContentType', $file['mimetype'])
