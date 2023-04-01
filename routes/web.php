@@ -54,7 +54,11 @@ Route::get('get', function() {
     $filename = '20606817/xSUgZWMuclcayt4JoXiz4EBoWfnecXl9rBJqOhuZ.pdf';
     $rawData = Storage::cloud()->get($filename); // raw content
     $file = Storage::cloud()->getAdapter()->getMetadata($filename); // array with file info
-
+    return response()->json([
+        'filename' => $filename,
+        'rawData' => $rawData,
+        'file' => $file,
+    ]);
     return response($rawData, 200)
         ->header('ContentType', $file['mimetype'])
         ->header('Content-Disposition', "attachment; filename=$filename");
