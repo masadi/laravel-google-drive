@@ -29,7 +29,7 @@ class GoogleController extends Controller
         $rawData = Storage::cloud()->get($filename); // raw content
         return response()->json([
             'filename' => $filename,
-            'rawData' => file_get_contents($rawData),
+            'rawData' => $rawData,
         ]);
         $file = Storage::cloud()->getAdapter()->getMetadata($filename); // array with file info
         return response()->json(['file' => $file]);
